@@ -33,9 +33,9 @@
     <div class="container">
 
       <form class="form-signin">
-        <h2 class="form-signin-heading">Please sign in</h2>
-        <label for="inputEmail" class="sr-only">Username</label>
-        <input type="email" id="inputEmail" class="form-control" placeholder="Username" required autofocus>
+        <h2 class="form-signin-heading">Welcome</h2>
+        <label for="inputEmail" class="sr-only">User Name</label>
+        <input type="text" id="inputEmail" class="form-control" placeholder="Username" required autofocus>
         <label for="inputPassword" class="sr-only">Password</label>
         <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
         <div class="checkbox">
