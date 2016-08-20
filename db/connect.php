@@ -1,19 +1,28 @@
 <?php
 
-   function connect() {
-      $dbhost = 'localhost';
-      $dbuser = 'root';
-      $dbpass = '';
-      $conn = mysqli_connect($dbhost, $dbuser, $dbpass);
-      
-      if(! $conn ) { 
-         die('Could not connect: ' . mysqli_error());
-      }
-      
-      echo 'Connected successfully';
-      
-      mysqli_select_db( $conn,'carpay' );
-      mysqli_close($conn);
+function Connect(){
+   $dbhost = 'localhost';
+   $dbuser = 'root';
+   $dbpass = 'root';
+   $dbname = 'carpay';
+
+   if(!($link = mysqli_connect($dbhost,$dbuser,$dbpass,$dbname)))
+   {
+      echo "Error al conectarse";
+      exit();
+   }
+   if(!mysqli_select_db($link,$dbname))
+   {
+      echo "Error seleccionando la base de datos";
+      exit();
+   }
+   return $link;
 }
+
+$link = Connect();
+mysqli_set_charset($link,"utf8");
+//echo "Conexion exitosa.<br>";
+mysqli_close($link);
+
    
 ?>
