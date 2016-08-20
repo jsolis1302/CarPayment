@@ -3,8 +3,8 @@
    include("../db/connect.php");
    header("Content-Type: application/json;charset=utf-8");
    
-   //$link = connect();
-   $link  = mysqli_connect("localhost","root","","carpay");
+   $link = connect();
+   //$link  = mysqli_connect("localhost","root","root","carpay");
    $sql = 'SELECT login,name, lastname FROM tbl_users';
    $retval = mysqli_query( $link,$sql);
 
