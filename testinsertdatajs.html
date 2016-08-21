@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>test insert data</title>
+	<script src = "http://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+
+</head>
+<body>
+	<div ng-app = "myApp" ng-controller ="payController">
+		<form action="post">
+			pay date: <input type="date" ng-model ="pay_date"/><br/>
+			amount: <input type="number" ng-model ="amount"/><br/>
+			user :<input type="number"ng-model ="login"/><br/>
+			<input type="button" value ="insert" ng-click ="inserdata()"/><br/>
+		</form>
+		
+	</div>
+	<script>
+		var app = angular.module('myApp',[]);
+		app.controller('payController',function($scope,$http){
+			$scope.inserdata = function(){
+				$http.post("php/insert.php",{'pay_date':$scope.pay_date,
+			                              'amount' :$scope.amount,
+			                              'login': $scope.login}).success(function(data,status,headers,config){
+			                              	console.log("data insertered successfully");
+			                              });
+			}
+		});
+	</script>
+</body>
+</html>
