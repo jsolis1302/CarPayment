@@ -97,7 +97,7 @@
             </div>
           </div>-->
 
-          <h2 class="sub-header">Section title</h2>
+          <h2 class="sub-header">Payments</h2>
           <div class="table-responsive" ng-app = "mainApp" ng-controller = "payController">
               <table class="table table-striped">
                   
@@ -107,8 +107,8 @@
                     <th>User</th>
                   </tr>
                   <tr ng-repeat = "pay in payments">
-                    <td>{{pay.pay_date}}</td>
-                    <td>{{pay.amount}}</td>
+                    <td>{{pay.pay_date }}</td>
+                    <td>{{pay.amount | currency}}</td>
                     <td>{{pay.user_name}}</td>
                 </tr>
     </table>
