@@ -98,13 +98,13 @@
           </div>-->
 
           <h2 class="sub-header">Section title</h2>
-          <div class="table-responsive" ng-app = "" ng-controller = "userController">
+          <div class="table-responsive" ng-app = "mainApp" ng-controller = "userController">
               <table class="table table-striped">
                   
                   <tr>
                     <th>Login </th>
                     <th>Name</th>
-                    <th>Lastname</<th>
+                    <th>Lastname</th>
                   </tr>
                   <tr ng-repeat = "user in users">
                     <td>{{user.login}}</td>
@@ -129,18 +129,32 @@
     <!--<script src="../../assets/js/vendor/holder.min.js"></script>-->
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <!--<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>-->
+    <script src = "http://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
     <script>
+       /*
         function userController($scope,$http)
         {
           //var url = "php/data.txt";
-          var url = "php/getusers.php"
+          var url = "php/getusers.php";
           $http.get(url).success( function(response)
           {
             $scope.users = response;
-          } );
-        }
+          });
+        }*/
+
+        
+        var mainApp = angular.module("mainApp",[]);
+
+        mainApp.controller('userController',function($scope,$http){
+          var url = "php/getusers.php";
+          $http.get(url).success(function(response){
+            $scope.users = response
+          });
+
+        });
+
   </script>
-  <script src = "http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+  
   
   
   </body>
