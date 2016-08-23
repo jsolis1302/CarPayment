@@ -11,6 +11,13 @@
  mysqli_query( $link,$sql);
 
 
+ function get_remaining_months($amount){
+ 	$months = $amount/3900;
+ 	$remaining_months = 39.04 - $monts;
+ 	return $remaining_months;
+ }
+
+
 
 
 
