@@ -20,7 +20,6 @@ if(! $retval ) {
   die('Could not get data: ' . mysqli_error());
 }
 $debt_amount = mysqli_fetch_row($retval);
-echo floatval($debt_amount[0]);
 /*
 while($r = mysqli_fetch_row($retval)) {
         $debt_amount[] = $r;
@@ -37,8 +36,18 @@ $sql_debt = "INSERT INTO tbl_debt  (amount_left,months_left,pay_id,total_debt) V
 mysqli_query( $link,$sql_debt);
 
  function get_remaining_months($amount){
+
+    $link = Connect();
+
+ 	$sql_months = "SELECT months_left from tbl_debt order by months_left;";
+ 	$retval =mysqli_query( $link,$sql_months);
+
+ 	if(! $retval ) {
+  		die('Could not get data: ' . mysqli_error());
+	}
+ 	$last_month = mysqli_fetch_row($retval);
  	$months = $amount/3900;
- 	$remaining_months = 39.04 - $months;
+ 	$remaining_months = floatval($last_month[0]) - $months;
  	return $remaining_months;
  }
 
