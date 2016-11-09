@@ -38,6 +38,7 @@ Contact: http://www.bootshape.com/contact.php
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
+    <script src = "js/calc.js"></script>
   </head>
   <body>
     <!-- Navigation bar -->
@@ -100,50 +101,57 @@ Contact: http://www.bootshape.com/contact.php
     <div class="container">
     <form >
           <div class="form-group">
-            <label for="exampleSelect1">Datos básicos</label>
-            <p><span> ¿Cuántas personas viven en tu hogar?</span>
+            <h3 for="exampleSelect1">Datos básicos</h3>
+            <label for="exampleSelect1"> ¿Cuántas personas viven en tu hogar?</label>
               <select  class="form-control" id="exampleSelect1" name="PERSONASVIVENENCASA" onChange="comidas()">
-              <option value="1.5">1 Persona</option>
-              <option value="1.2">2 Personas</option>
-              <option value="1">3 Personas</option>
-              <option value="0.7">4 Personas</option>
-              <option value="0.5">5 o más Personas</option>
+              <option value="1.5">1</option>
+              <option value="1.2">2</option>
+              <option value="1">3</option>
+              <option value="0.7">4</option>
+              <option value="0.5">5</option>
             </select>
-            </p>
          </div>
         <div class="form-group">
-          <label for="exampleInputPassword1">Password</label>
-          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-        </div>
-        <div class="form-group">
-          <label for="exampleSelect1">Example select</label>
-          <select class="form-control" id="exampleSelect1">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
+          <label for="exampleSelect1">¿Qué cantidad de sus comidas (desayunos, comidas y cenas) se elaboran en casa? </label>
+          <select  class="form-control" name="CANTIDADCOMIDAS" id="CANTIDADCOMIDAS" size="1" onChange="comidas()">
+            <option value="1.5">Casi toda</option>
+            <option value="1.2">La mayoría</option>
+            <option value="1">Más o menos la mitad</option>
+            <option value="0.8">Menos de la mitad</option>
+            <option value="0.5">Casi ninguna</option>
           </select>
         </div>
         <div class="form-group">
-          <label for="exampleSelect2">Example multiple select</label>
-          <select multiple class="form-control" id="exampleSelect2">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
+          <label for="exampleSelect1">¿Qué tipo de comida consumen?</label>
+          <select  class="form-control"  name="TIPODECOMIDA" id="TIPODECOMIDA"  size="1" onChange="comidas()">
+            <option value="1.5">Muchos alimentos frescos</option>
+            <option value="1">Tanto alimentos frescos como preparados y enlatados</option>
+            <option value="0.25">Muchos alimentos enlatados y precocinados</option>
+          </select>
+          <p><input type="hidden" name="habitoAlimenConsumo" id="habitoAlimenConsumo"></p>
+        </div>
+        <div class="form-group">
+          <h3>Consumo de papel</h3>
+          <label for="exampleSelect1">¿Cuántos periódicos llegan a tu hogar?</label>
+          <select class="form-control" name="PERIODICO" id="PERIODICO" size="1" onChange="papeles1()">
+            <option value="2">Varios todos los días</option>
+            <option value="1.25">Uno solo a diario</option>
+            <option value="1">Alguno de vez en cuando</option>
+            <option value="0.75">Sólo el periódico del domingo</option>
+            <option value="0.25">Ninguno</option>
           </select>
         </div>
         <div class="form-group">
-          <label for="exampleTextarea">Example textarea</label>
-          <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+          <label for="exampleSelect1">¿Con qué frecuencia llegan catálogos, revistas y publicidad?</label>
+          <select class="form-control" name="CATALOGOSYREVISTAS" id="CATALOGOSYREVISTAS" size="1" onChange="papeles2()">
+            <option value="2">Muchos todos los d&iacute;as</option>
+            <option value="1.25">Varios todos los d&iacute;as</option>
+            <option value="1">De vez en cuando</option>
+            <option value="0.75">Espor&aacute;dicamente</option>
+            <option value="0.25">Nunca</option>
+          </select>
         </div>
-        <div class="form-group">
-          <label for="exampleInputFile">File input</label>
-          <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
-          <small id="fileHelp" class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
-        </div>
+
         <fieldset class="form-group">
           <legend>Radio buttons</legend>
           <div class="form-check">
@@ -171,7 +179,8 @@ Contact: http://www.bootshape.com/contact.php
             Check me out
           </label>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        
+        <input type="button" value="Cálcular general" class="btn btn-primary" onClick="total()" />
     </form>
       <!--
       <div class="col-sm-6 col-md-4">
