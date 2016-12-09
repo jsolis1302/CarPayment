@@ -1,4 +1,5 @@
 
+<?php session_start();?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -50,7 +51,7 @@
             <li><a href="#">Dashboard</a></li>
             <li><a href="#">Settings</a></li>
             <li><a href="#">Profile</a></li>
-            <li><a href="#">Help</a></li>
+            <li><a href="php/logout.php">Log Out</a></li>
           </ul>
           <form class="navbar-form navbar-right">
             <input type="text" class="form-control" placeholder="Search...">
@@ -70,7 +71,13 @@
           </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h1 class="page-header">Welcome</h1>
+        <h1 class="page-header">Welcome 
+        <?php
+            //session_start();
+
+            echo $_SESSION['login']."</h1>"; 
+          ?>
+          
 
           <!--<div class="row placeholders">
             
@@ -97,10 +104,7 @@
           </div>-->
 
           <h2 class="sub-header">Section title</h2>
-          <?php
-            session_start();
-            echo "Hola " . $_SESSION['login'];
-          ?>
+
           
           <!--<div class="table-responsive">
             <table class="table table-striped">
