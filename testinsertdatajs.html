@@ -20,9 +20,12 @@
 		var app = angular.module('myApp',[]);
 		app.controller('payController',function($scope,$http){
 			$scope.inserdata = function(){
-				$http.post("php/insert.php",{'pay_date':$scope.pay_date,
-			                              'amount' :$scope.amount,
-			                              'login': $scope.login}).success(function(data,status,headers,config){
+				$http.post("php/insert.php",
+					          {'pay_date':$scope.pay_date,
+			                   'amount' :$scope.amount,
+			                   'login': $scope.login
+			                  }
+			               ).success(function(data,status,headers,config){
 			                              	console.log("data insertered successfully");
 			                              });
 			}

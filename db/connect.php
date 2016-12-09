@@ -3,7 +3,7 @@
 function Connect(){
    $dbhost = 'localhost';
    $dbuser = 'root';
-   $dbpass = 'root';
+   $dbpass = '';
    $dbname = 'carpay';
 
    if(!($link = mysqli_connect($dbhost,$dbuser,$dbpass,$dbname)))
