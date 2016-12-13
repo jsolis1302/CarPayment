@@ -51,7 +51,16 @@
             <li><a href="#">Dashboard</a></li>
             <li><a href="#">Settings</a></li>
             <li><a href="#">Profile</a></li>
-            <li><a href="php/logout.php">Log Out</a></li>
+            <li> <?php 
+                   if (! empty($_SESSION["login"])) 
+                      {
+                        echo '<a href="php/logout.php" title="Cerrar sesión">'.$_SESSION["login"].'</a>'; 
+
+                      }
+
+            ?> 
+            <!--<a href="">Log Out</a>-->
+            </li>
           </ul>
           <form class="navbar-form navbar-right">
             <input type="text" class="form-control" placeholder="Search...">
