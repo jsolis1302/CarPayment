@@ -113,7 +113,7 @@
             </div>
           </div>-->
 
-          <h2 class="sub-header">Section title</h2>
+          <h2 class="sub-header">Create User</h2>
           <div ng-app = "myApp" ng-controller ="userController">
             <form action="post">
               <div class="form-group">
