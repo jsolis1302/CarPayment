@@ -6,7 +6,7 @@ $login = $_POST['user'];
 
 $pass = $_POST['pass'];
 
-echo $login." ".$pass;
+echo $login."<br> ".$pass;
  
 if(empty($login) || empty($pass)){
 header("Location: index_error.php");
@@ -19,19 +19,21 @@ mysql_select_db('login') or die ("Error al seleccionar la Base de datos: " . mys
 
 $link = connect();
 $query = "select * from tbl_users where login ="."'".$login."';";
-echo $query."<br>";
+
 
  
 $result = mysqli_query($link,$query);
  
 if($row = mysqli_fetch_array($result)){
-	if($row['password'] == $pass){
+	
+	if($row['password'] == md5($pass)){
 		session_start();
 		$_SESSION['login'] = $login;
 		header("Location: ../main.php");
 	}
     else{
 		//header("Location: ../index.php");
+		echo md5($pass);
 		header("Location: ../index_error.php");
 		exit();
 	}
