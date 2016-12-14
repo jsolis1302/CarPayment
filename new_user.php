@@ -26,6 +26,21 @@
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
     <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
     <script src = "http://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <script>
+      function check_pass(){
+
+        if(document.getElementById('password').value === document.getElementById('confirm_password').value) 
+        {
+          document.getElementById('message').innerHTML = "match";
+          document.getElementById('submit').disabled = false;
+        } 
+
+        else {
+        document.getElementById('message').innerHTML = "Please chek your password";
+        document.getElementById('submit').disabled = true;
+    }
+      }
+    </script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -89,44 +104,21 @@
           ?>
           
 
-          <!--<div class="row placeholders">
-            
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-          </div>-->
-
           <h2 class="sub-header">Create User</h2>
           <div ng-app = "myApp" ng-controller ="userController">
             <form action="post">
               <div class="form-group">
                 <label for="login">Log In</label> 
-                <input class="form-control" type="text" ng-model ="login"/>
+                <input class="form-control" type="text" ng-model ="login" required/>
               </div>
               <div>
                 <label for="passw">Password</label> 
-                <input class="form-control" type="password" ng-model ="passw"/>
+                <input class="form-control" type="password" ng-model ="passw" id = 'password' onchange='check_pass();'/>
               </div>
               <div>
                 <label for="rpassw">Repeat Password</label> 
-                <input class="form-control" type="password" ng-model ="rpassw"/>
+                <input class="form-control" type="password" ng-model ="rpassw" id = 'confirm_password' onchange='check_pass();'/>
+                <span id='message'></span>
 
               </div>
               <div>
@@ -139,7 +131,7 @@
               </div>
                 
                 
-            <input type="button" value ="Insertar" class="btn btn-primary" ng-click ="inserdata()"/><br/>
+            <input type="button" value ="Insertar" class="btn btn-primary" ng-click ="inserdata()" id = 'submit'/><br/>
             </form>
     
           </div>
